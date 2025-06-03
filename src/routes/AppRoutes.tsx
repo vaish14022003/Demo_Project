@@ -19,7 +19,6 @@
 // };
 
 // export default AppRoutes;
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "../layouts/AppLayout";
 import OrderPlacementPage from "../features/customer/orderPlacement/OrderPlacementPage";
@@ -33,6 +32,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import Dashboard from "../features/admin/dashboard/Dashboard";
 import Register from "../features/auth/pages/Register";
 import HomePage from "../features/auth/pages/HomePage";
+import RestaurantManagerLanding from "../features/restrauntManager/RestaurantManagerLanding";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -86,6 +86,7 @@ const AppRoutes = () => {
       element: <AdminLayout />,
       children: [
         { path: "dashboard", element: <Dashboard /> },
+        { path:"rm", element: <RestaurantManagerLanding /> }
         // { path: 'orders', element: <OrdersPage /> },
         // { path: 'users', element: <UsersPage /> },
         // { path: 'menu', element: <MenuPage /> },
