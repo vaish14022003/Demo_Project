@@ -1,24 +1,3 @@
-  // import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Keep BrowserRouter here
-// import OrderPlacementPage from '../features/customer/orderPlacement/OrderPlacementPage';
-// import OrderStatusPage from '../features/customer/orderStatus/OrderStatusPage';
-// import OrderHistoryPage from '../features/customer/orderHistory/OrderHistoryPage';
-// import OrderManagmentPage from '../features/admin/orders/OrderManagmentPage';
-
-// const AppRoutes = () => {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         {/* Public Routes */}
-//         <Route path="/place-order" element={<OrderPlacementPage />} />
-//         <Route path="/place-order/order-status" element={<OrderStatusPage />} />
-//         <Route path="/order-history" element={<OrderHistoryPage />} />
-//         <Route path="/admin/orders" element={<OrderManagmentPage />} />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// };
-
-// export default AppRoutes;
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "../layouts/AppLayout";
 import OrderPlacementPage from "../features/customer/orderPlacement/OrderPlacementPage";
@@ -86,11 +65,15 @@ const AppRoutes = () => {
       element: <AdminLayout />,
       children: [
         { path: "dashboard", element: <Dashboard /> },
-        { path:"rm", element: <RestaurantManagerLanding /> }
         // { path: 'orders', element: <OrdersPage /> },
         // { path: 'users', element: <UsersPage /> },
         // { path: 'menu', element: <MenuPage /> },
       ],
+    },
+    {
+      path: "/restraunt-manager",
+      element: <RestaurantManagerLanding />,
+      // children: [{ path: "register", element: <Register /> }],
     },
   ]);
   return <RouterProvider router={router} />;

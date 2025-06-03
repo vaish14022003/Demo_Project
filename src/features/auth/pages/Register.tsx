@@ -284,7 +284,7 @@ const RegisterPage: React.FC = () => {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <label
                 htmlFor="role"
                 className="block text-sm font-medium text-gray-700"
@@ -303,7 +303,7 @@ const RegisterPage: React.FC = () => {
                   <option value="admin">Admin</option>
                 </select>
               </div>
-            </div>
+            </div> */}
 
             <div>
               <button
