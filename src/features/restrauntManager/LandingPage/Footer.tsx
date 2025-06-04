@@ -56,11 +56,11 @@ const Footer: React.FC = () => {
                   About Us
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="hover:text-white transition-colors">
                   Careers
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="#" className="hover:text-white transition-colors">
                   Press Kit

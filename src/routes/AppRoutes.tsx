@@ -72,11 +72,11 @@ const AppRoutes = () => {
       ],
     },
     {
-      path: "/restraunt-manager",
+      path: "/restaurant-manager",
       element: <RestaurantManagerLanding />,
     },
     {
-      path: "/restaurant-manager/info",
+      path: "restaurant-manager/info",
       element: <RestaurantInfoForm />,
     },
   ]);

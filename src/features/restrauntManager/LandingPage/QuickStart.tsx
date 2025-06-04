@@ -1,4 +1,5 @@
 import { CheckCircle, Play } from "lucide-react";
+import { useNavigate } from "react-router";
 
 const QuickStart: React.FC = () => {
   const requirements = [
@@ -7,6 +8,11 @@ const QuickStart: React.FC = () => {
     { title: "Bank Account Details", completed: true },
     { title: "Contact Information", completed: true },
   ];
+
+  const navigate = useNavigate();
+  const handleRegister = () => {
+    navigate("/restaurant-manager/info");
+  };
 
   return (
     <section className="py-16 bg-white">
@@ -30,7 +36,10 @@ const QuickStart: React.FC = () => {
               ))}
             </div>
 
-            <button className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+            <button
+              onClick={handleRegister}
+              className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
               Apply Now
             </button>
           </div>

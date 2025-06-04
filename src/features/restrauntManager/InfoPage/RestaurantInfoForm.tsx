@@ -750,7 +750,7 @@ const RestaurantInfoForm: React.FC = () => {
                 <button
                   onClick={() => {
                     if (currentStep === steps.length) {
-                      navigate("/auth/register")
+                      navigate("/auth/login")
                     }
                     if (currentStep < steps.length) {
                       setCurrentStep(currentStep + 1);
