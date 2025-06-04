@@ -12,6 +12,7 @@ import Dashboard from "../features/admin/dashboard/Dashboard";
 import Register from "../features/auth/pages/Register";
 import HomePage from "../features/auth/pages/HomePage";
 import RestaurantManagerLanding from "../features/restrauntManager/LandingPage/RestaurantManagerLanding";
+import RestaurantInfoForm from "../features/restrauntManager/InfoPage/RestaurantInfoForm";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -73,6 +74,10 @@ const AppRoutes = () => {
     {
       path: "/restraunt-manager",
       element: <RestaurantManagerLanding />,
+    },
+    {
+      path: "/restaurant-manager/info",
+      element: <RestaurantInfoForm />,
     },
   ]);
   return <RouterProvider router={router} />;
