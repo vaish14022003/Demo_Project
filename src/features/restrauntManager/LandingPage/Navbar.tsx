@@ -51,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             onClick={scrollToTop}
           >
             <ChefHat className="h-8 w-8 text-orange-500" />
-            <span className="text-xl font-bold text-gray-900">Foodify</span>
+            <span className="text-xl font-bold text-gray-900">FoodFlow</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -139,8 +139,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 Contact
               </button>
               <button
-                className="w-full mt-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors"
                 onClick={handleRegister}
+                className="w-full mt-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors"
               >
                 Register Your Restaurant
               </button>
