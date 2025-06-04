@@ -11,7 +11,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import Dashboard from "../features/admin/dashboard/Dashboard";
 import Register from "../features/auth/pages/Register";
 import HomePage from "../features/auth/pages/HomePage";
-import RestaurantManagerLanding from "../features/restrauntManager/RestaurantManagerLanding";
+import RestaurantManagerLanding from "../features/restrauntManager/LandingPage/RestaurantManagerLanding";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -73,7 +73,6 @@ const AppRoutes = () => {
     {
       path: "/restraunt-manager",
       element: <RestaurantManagerLanding />,
-      // children: [{ path: "register", element: <Register /> }],
     },
   ]);
   return <RouterProvider router={router} />;

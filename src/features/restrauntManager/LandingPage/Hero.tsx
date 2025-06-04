@@ -3,7 +3,6 @@ import { CheckCircle, Star, TrendingUp, Users } from "lucide-react";
 const Hero: React.FC = () => {
   return (
     <section className="relative bg-gradient-to-br from-orange-50 to-red-50 pt-20 pb-16 overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-orange-500 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-red-500 rounded-full blur-3xl"></div>
@@ -50,7 +49,7 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="relative">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 transform hover:rotate-3 transition-transform duration-500">
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-orange-100 rounded-lg p-4 text-center">
                   <TrendingUp className="h-8 w-8 text-orange-500 mx-auto mb-2" />
