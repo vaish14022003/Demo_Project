@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // import React from "react";
 // import { BrowserRouter } from "react-router-dom";
@@ -19,6 +20,9 @@ import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+=======
+import AppRoutes from './routes/AppRoutes';
+>>>>>>> origin/dev
 
 function App() {
   return (
