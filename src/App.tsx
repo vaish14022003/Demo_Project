@@ -1,11 +1,31 @@
-import React from 'react';
-import AppRoutes from './routes/AppRoutes';
+
+// import React from "react";
+// import { BrowserRouter } from "react-router-dom";
+// import AppRoutes from "./routes/AppRoutes";
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <AppRoutes />
+     
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <AppRoutes />
-    </div>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </BrowserRouter>
   );
 }
 
