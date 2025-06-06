@@ -14,6 +14,7 @@ import HomePage from "../features/auth/pages/HomePage";
 import RestaurantManagerLanding from "../features/restrauntManager/LandingPage/RestaurantManagerLanding";
 import RestaurantInfoForm from "../features/restrauntManager/InfoPage/RestaurantInfoForm";
 import ReferralForm from "../features/restrauntManager/InfoPage/ReferralForm";
+import PlaceOrderPage from "../features/customer/orderPlacement/PlaceOrderPage";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const AppRoutes = () => {
       children: [
         {
           path: "/place-order",
-          element: <OPP />,
+          element: <PlaceOrderPage />,
         },
         {
           path: "/place-order/order-status",
