@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MapPin, Upload, FileText, Check, AlertCircle } from "lucide-react";
 import { useNavigate } from "react-router";
+import useGeolocation from "../../../hooks/useGeolocation";
 
 interface FormData {
   restaurantName: string;
@@ -27,6 +28,7 @@ interface FormData {
 }
 
 const RestaurantInfoForm: React.FC = () => {
+  const { location, error, getLocation } = useGeolocation();
   const [currentStep, setCurrentStep] = useState(1);
   // const [showPaymentDetails, setShowPaymentDetails] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -153,6 +155,9 @@ const RestaurantInfoForm: React.FC = () => {
   };
 
   const navigate = useNavigate();
+  const handleForm = () => {
+    navigate("/restaurant-manager/refer-form");
+  };
 
   const FileUploadCard = ({
     title,
@@ -317,9 +322,18 @@ const RestaurantInfoForm: React.FC = () => {
                   <p className="text-gray-600">
                     Interactive map would be integrated here
                   </p>
-                  <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-800">
+                  <button
+                    onClick={getLocation}
+                    className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-800"
+                  >
                     📍 Use current location
                   </button>
+                  {location && (
+                    <p>
+                      Your location: {location.lat}, {location.lon}
+                    </p>
+                  )}
+                  {error && <p className="text-red-600">{error}</p>}
                 </div>
               </div>
 
@@ -713,7 +727,10 @@ const RestaurantInfoForm: React.FC = () => {
                   <span className="text-gray-600">
                     Did someone refer you to this platform?
                   </span>
-                  <button className="ml-2 text-orange-600 hover:underline">
+                  <button
+                    onClick={handleForm}
+                    className="ml-2 text-orange-600 hover:underline"
+                  >
                     Yes
                   </button>
                 </div>
@@ -750,7 +767,7 @@ const RestaurantInfoForm: React.FC = () => {
                 <button
                   onClick={() => {
                     if (currentStep === steps.length) {
-                      navigate("/auth/login")
+                      navigate("/auth/login");
                     }
                     if (currentStep < steps.length) {
                       setCurrentStep(currentStep + 1);

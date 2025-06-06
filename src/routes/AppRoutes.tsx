@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "../layouts/AppLayout";
-import OrderPlacementPage from "../features/customer/orderPlacement/OrderPlacementPage";
+import OPP from "../features/customer/orderPlacement/OPP";
 import OrderStatusPage from "../features/customer/orderStatus/OrderStatusPage";
 import OrderHistoryPage from "../features/customer/orderHistory/OrderHistoryPage";
 import OrderManagmentPage from "../features/admin/orders/OrderManagmentPage";
@@ -13,6 +13,7 @@ import Register from "../features/auth/pages/Register";
 import HomePage from "../features/auth/pages/HomePage";
 import RestaurantManagerLanding from "../features/restrauntManager/LandingPage/RestaurantManagerLanding";
 import RestaurantInfoForm from "../features/restrauntManager/InfoPage/RestaurantInfoForm";
+import ReferralForm from "../features/restrauntManager/InfoPage/ReferralForm";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -23,7 +24,7 @@ const AppRoutes = () => {
       children: [
         {
           path: "/place-order",
-          element: <OrderPlacementPage />,
+          element: <OPP />,
         },
         {
           path: "/place-order/order-status",
@@ -78,6 +79,10 @@ const AppRoutes = () => {
     {
       path: "restaurant-manager/info",
       element: <RestaurantInfoForm />,
+    },
+    {
+      path: "restaurant-manager/refer-form",
+      element: <ReferralForm />,
     },
   ]);
   return <RouterProvider router={router} />;

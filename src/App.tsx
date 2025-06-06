@@ -1,9 +1,11 @@
+import GetLocation from './features/auth/pages/LocationCard';
 import AppRoutes from './routes/AppRoutes';
 
 function App() {
   return (
     <div className="App">
       <AppRoutes />
+      {/* <GetLocation /> */}
     </div>
   );
 }
