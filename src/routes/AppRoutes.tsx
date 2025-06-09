@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "../layouts/AppLayout";
-import OPP from "../features/customer/orderPlacement/OPP";
 import OrderStatusPage from "../features/customer/orderStatus/OrderStatusPage";
 import OrderHistoryPage from "../features/customer/orderHistory/OrderHistoryPage";
 import OrderManagmentPage from "../features/admin/orders/OrderManagmentPage";
