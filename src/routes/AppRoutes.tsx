@@ -16,18 +16,16 @@
 
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
-
-
-
-
-
-import AdminDashboard from "../features/admin/pages/AdminDashboard";
+import AdminDashboard from "../features/admin/pages/AdminDashboard"
 import ManageManagers from "../features/admin/pages/AdminManagerManager";
 import SpecialOrders from "../features/admin/pages/AdminSpecialOrders";
 //import SpecialOrderDetails from './SpecialOrderDetails';
 import SpecialOrderDetails from "../features/admin/pages/SpecialOrderDetails";
 import NotFound from "../features/admin/pages/NotFound";
+import MainPage from '../features/restaurants/RestaurantLandingPage/MainPage';
+import DelieveryLanding from '../features/restaurants/Delivery/DeliveryLanding';
+import Checkout from '../features/cart/Checkout';
+import CartPage from '../features/cart/CartPage';
 
 
 export default function AppRoutes() {
@@ -42,6 +40,13 @@ export default function AppRoutes() {
             {/*For view order details:--_*/ }
             {/* <Route path="/special-orders/:orderId" element={<SpecialOrderDetails />} /> */}
             <Route path="/admin/special-orders/:orderId" element={<SpecialOrderDetails />} />
+
+
+            <Route path="/restaurant/landing" element={<MainPage />} />
+      <Route path="/restaurant/delivery" element={<DelieveryLanding />} />
+   <Route path="/cart/checkout" element={<Checkout />} />
+
+      <Route path="/cart" element={<CartPage />} />
 
 
 
