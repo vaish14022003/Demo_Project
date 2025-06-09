@@ -5,7 +5,7 @@ import type { UploadedFiles } from "../../../../types";
 
 interface Step3DocumentsProps {
   uploadedFiles: UploadedFiles;
-  onFileUpload: (key: string, file: File) => void;
+  onFileUpload: (key: keyof UploadedFiles | string, file: File) => void;
 }
 
 const Step3Documents: React.FC<Step3DocumentsProps> = ({

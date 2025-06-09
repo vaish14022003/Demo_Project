@@ -6,7 +6,7 @@ import OwnerDetails from "./OwnerDetails";
 interface Step1BasicInfoProps {
   formData: FormData;
   onInputChange: (field: keyof FormData, value: any) => void;
-  onFileUpload: (key: string, file: File) => void;
+  // onFileUpload: (key: string, file: File) => void;
   getLocation: () => void;
   location: { lat: number; lon: number } | null;
   error: string | null;
@@ -15,7 +15,6 @@ interface Step1BasicInfoProps {
 const Step1BasicInfo: React.FC<Step1BasicInfoProps> = ({
   formData,
   onInputChange,
-  onFileUpload,
   getLocation,
   location,
   error,

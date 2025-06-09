@@ -82,7 +82,7 @@ const RestaurantRegistration: React.FC = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleFileUpload = (key: keyof UploadedFiles, file: File) => {
+  const handleFileUpload = (key: keyof UploadedFiles | string, file: File) => {
     setUploadedFiles((prev) => ({ ...prev, [key]: file }));
   };
 
@@ -91,13 +91,30 @@ const RestaurantRegistration: React.FC = () => {
     navigate("/restaurant-manager/refer-form");
   };
 
+  const handleHoursChange = (
+    day: string,
+    field: "open" | "close" | "closed",
+    value: string | boolean
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      operatingHours: {
+        ...prev.operatingHours,
+        [day]: {
+          ...prev.operatingHours[day],
+          [field]: value,
+        },
+      },
+    }));
+  };
+
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
         return (
           <Step1BasicInfo
             formData={formData}
-            handleInputChange={handleInputChange}
+            onInputChange={handleInputChange}
             location={location}
             error={error}
             getLocation={getLocation}
@@ -107,22 +124,22 @@ const RestaurantRegistration: React.FC = () => {
         return (
           <Step2MenuDetails
             formData={formData}
-            handleInputChange={handleInputChange}
-            setFormData={setFormData}
+            onInputChange={handleInputChange}
+            onHoursChange={handleHoursChange}
           />
         );
       case 3:
         return (
           <Step3Documents
             uploadedFiles={uploadedFiles}
-            handleFileUpload={handleFileUpload}
+            onFileUpload={handleFileUpload}
           />
         );
       case 4:
         return (
           <Step4Payment
             formData={formData}
-            handleInputChange={handleInputChange}
+            onInputChange={handleInputChange}
           />
         );
       default:
