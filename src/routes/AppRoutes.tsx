@@ -11,9 +11,9 @@ import Dashboard from "../features/admin/dashboard/Dashboard";
 import Register from "../features/auth/pages/Register";
 import HomePage from "../features/auth/pages/HomePage";
 import RestaurantManagerLanding from "../features/restrauntManager/LandingPage/RestaurantManagerLanding";
-import RestaurantInfoForm from "../features/restrauntManager/InfoPage/RestaurantInfoForm";
 import ReferralForm from "../features/restrauntManager/InfoPage/ReferralForm";
 import PlaceOrderPage from "../features/customer/orderPlacement/PlaceOrderPage";
+import RestaurantForm from "../features/restrauntManager/InfoPage/RestaurantForm";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -78,7 +78,7 @@ const AppRoutes = () => {
     },
     {
       path: "restaurant-manager/info",
-      element: <RestaurantInfoForm />,
+      element: <RestaurantForm />,
     },
     {
       path: "restaurant-manager/refer-form",
