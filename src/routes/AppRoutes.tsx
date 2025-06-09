@@ -1,37 +1,91 @@
-import {
-    createBrowserRouter,
-    RouterProvider,
-    Outlet,
-  } from "react-router-dom";
-  
-  import Home from "../features/restaurants/pages/Home";
-  import Menu from "../features/restaurants/pages/Menu";
-  import Orders from "../features/restaurants/pages/Orders";
-  import OrderHistory from "../features/restaurants/pages/OrderHistory";
-  import RestaurantInfo from "../features/restaurants/pages/RestaurantInfo";
-  import NotFound from "../features/restaurants/pages/NotFound";
-  import Layout from "../features/restaurants/components/layout/Layout";
-  
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AppLayout from "../layouts/AppLayout";
+import OrderStatusPage from "../features/customer/orderStatus/OrderStatusPage";
+import OrderHistoryPage from "../features/customer/orderHistory/OrderHistoryPage";
+import OrderManagmentPage from "../features/admin/orders/OrderManagmentPage";
+import ErrorPage from "../features/auth/components/ErrorPage";
+import Login from "../features/auth/pages/Login";
+import AuthLayout from "../layouts/AuthLayout";
+import AdminLayout from "../layouts/AdminLayout";
+import Dashboard from "../features/admin/dashboard/Dashboard";
+import Register from "../features/auth/pages/Register";
+import HomePage from "../features/auth/pages/HomePage";
+import RestaurantManagerLanding from "../features/restrauntManager/LandingPage/RestaurantManagerLanding";
+import ReferralForm from "../features/restrauntManager/InfoPage/ReferralForm";
+import PlaceOrderPage from "../features/customer/orderPlacement/PlaceOrderPage";
+import RestaurantForm from "../features/restrauntManager/InfoPage/RestaurantForm";
+
+const AppRoutes = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout><Outlet /></Layout>,
+      element: <AppLayout />,
+      errorElement: <ErrorPage />,
       children: [
-        { index: true, element: <Home /> },
-        { path: "menu", element: <Menu /> },
-        { path: "orders", element: <Orders /> },
-        { path: "order-history", element: <OrderHistory /> },
-        { path: "restaurant-info", element: <RestaurantInfo /> },
-        { path: "*", element: <NotFound /> },
+        {
+          path: "/place-order",
+          element: <PlaceOrderPage />,
+        },
+        {
+          path: "/place-order/order-status",
+          element: <OrderStatusPage />,
+        },
+        {
+          path: "/order-history",
+          element: <OrderHistoryPage />,
+        },
+        {
+          path: "/admin/orders",
+          element: <OrderManagmentPage />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/home",
+          element: <HomePage />,
+        },
       ],
     },
+    {
+      path: "/auth",
+      element: <AuthLayout />,
+      children: [
+        {
+          path: "login",
+          element: <Login />,
+        },
+        {
+          path: "register",
+          element: <Register />,
+        },
+      ],
+    },
+    {
+      path: "/admin",
+      element: <AdminLayout />,
+      children: [
+        { path: "dashboard", element: <Dashboard /> },
+        // { path: 'orders', element: <OrdersPage /> },
+        // { path: 'users', element: <UsersPage /> },
+        // { path: 'menu', element: <MenuPage /> },
+      ],
+    },
+    {
+      path: "/restaurant-manager",
+      element: <RestaurantManagerLanding />,
+    },
+    {
+      path: "restaurant-manager/info",
+      element: <RestaurantForm />,
+    },
+    {
+      path: "restaurant-manager/refer-form",
+      element: <ReferralForm />,
+    },
   ]);
-  
-  const App = () => (
-    <div className="flex flex-col h-screen bg-white text-gray-800 overflow-hidden">
-      <RouterProvider router={router} />
-    </div>
-  );
-  
-  export default App;
-  
+  return <RouterProvider router={router} />;
+};
+
+export default AppRoutes;
