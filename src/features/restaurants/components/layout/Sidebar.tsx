@@ -9,6 +9,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { ChefHat } from "lucide-react";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -90,11 +91,12 @@ const Sidebar = () => {
             )}
             {(!collapsed || isMobile) && (
               <div className="flex items-center space-x-2">
-                <div className="w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">F</span>
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center">
+                  <span className="text-orange-600 ml-2"><ChefHat /></span>
+                  {/* <span className="text-black font-bold text-lg mr-24 ml-2">F</span> */}
                 </div>
                 <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
-                  Partner
+                  Foodify
                 </span>
               </div>
             )}

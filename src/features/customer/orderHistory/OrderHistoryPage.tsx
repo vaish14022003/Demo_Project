@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { orderHistory as mockOrderData } from "./mockOrderHistory";
-import React from "react";
 
 type OrderItem = {
   name: string;
@@ -114,7 +113,6 @@ const OrderHistoryPage = () => {
           ))}
         </ul>
 
-        {/* Order Details Modal with Blurry Background */}
         {selectedOrder && (
           <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
             {/* Blurry backdrop */}

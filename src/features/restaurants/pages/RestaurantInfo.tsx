@@ -50,7 +50,7 @@ const RestaurantInfo = () => {
         {!isEditing ? (
           <button 
             onClick={() => setIsEditing(true)} 
-            className="flex items-center justify-center px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 cursor-pointer w-full sm:w-auto"
+            className="flex items-center justify-center px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 cursor-pointer w-full sm:w-auto"
           >
             <Edit className="h-4 w-4 mr-2" />
             Edit Information
@@ -253,7 +253,7 @@ const RestaurantInfo = () => {
                         {restaurantInfo.openingHours[day].open} - {restaurantInfo.openingHours[day].close}
                       </span>
                     ) : (
-                      <span className="text-sm sm:text-base text-red-600">Closed</span>
+                      <span className="text-sm sm:text-base text-orange-500">Closed</span>
                     )}
                   </div>
                 )}

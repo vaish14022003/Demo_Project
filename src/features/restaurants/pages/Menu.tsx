@@ -60,11 +60,11 @@ const Menu = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Menu Management</h1>
-          <p className="text-gray-600">Manage your restaurant's menu items</p>
+          <p className="text-gray-500">Manage your restaurant's menu items</p>
         </div>
         <button
           onClick={handleAddNew}
-          className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-md transition-colors cursor-pointer"
+          className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded-md transition-colors cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-2" />
           Add New Item
@@ -80,7 +80,7 @@ const Menu = () => {
             placeholder="Search menu items..."
             value={searchTerm}
             onChange={(e) => dispatch(setSearchTerm(e.target.value))}
-            className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -93,8 +93,8 @@ const Menu = () => {
                 className={`px-4 py-1 rounded-md font-medium transition-colors cursor-pointer
                   ${
                     isSelected
-                      ? "bg-red-600 text-white hover:bg-red-700"
-                      : "border border-gray-300 text-gray-700 hover:bg-gray-100"
+                      ? "bg-orange-500 text-white hover:bg-orange-600"
+                      : "border border-gray-300 text-gray-600 hover:bg-gray-100"
                   }`}
               >
                 {category}
@@ -127,8 +127,8 @@ const Menu = () => {
                   onClick={() => handleToggleAvailability(item.id)}
                   className={`p-1 rounded-full transition-colors cursor-pointer ${
                     item.isAvailable
-                      ? "text-green-600 hover:text-green-800"
-                      : "text-gray-400 hover:text-gray-600"
+                      ? "text-green-500 hover:text-green-800"
+                      : "text-gray-400 hover:text-gray-500"
                   }`}
                   aria-label={
                     item.isAvailable ? "Mark unavailable" : "Mark available"
@@ -144,7 +144,7 @@ const Menu = () => {
                   className={`px-2 py-1 rounded-full text-xs font-medium ${
                     item.isVeg
                       ? "bg-green-100 text-green-800"
-                      : "bg-red-100 text-red-800"
+                      : "bg-orange-100 text-orange-800"
                   }`}
                 >
                   {item.isVeg ? "Veg" : "Non-Veg"}
@@ -156,11 +156,11 @@ const Menu = () => {
             <div className="p-4 flex flex-col flex-grow">
               <div className="flex justify-between items-start mb-2">
                 <h3 className="font-semibold text-lg">{item.name}</h3>
-                <span className="text-lg font-bold text-green-600">
+                <span className="text-lg font-bold text-green-500">
                   ₹{item.price}
                 </span>
               </div>
-              <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+              <p className="text-gray-500 text-sm mb-3 line-clamp-2">
                 {item.description}
               </p>
 
@@ -176,10 +176,10 @@ const Menu = () => {
                         key={variant.id}
                         className="flex justify-between lg:justify-start items-center text-xs bg-gray-100 rounded-md p-2 w-full lg:w-auto"
                       >
-                        <span className="text-gray-700 font-medium">
+                        <span className="text-gray-600 font-medium">
                           {variant.name}
                         </span>
-                        <span className="text-gray-700 lg:ml-4">
+                        <span className="text-gray-600 lg:ml-4">
                           ₹{variant.price}
                         </span>
                       </div>
@@ -194,7 +194,7 @@ const Menu = () => {
                   className={`px-2 py-1 rounded-full ${
                     item.isAvailable
                       ? "bg-green-100 text-green-800"
-                      : "bg-gray-100 text-gray-600"
+                      : "bg-gray-100 text-gray-500"
                   }`}
                 >
                   {item.isAvailable ? "Available" : "Unavailable"}
@@ -204,14 +204,14 @@ const Menu = () => {
               <div className="flex space-x-2 mt-auto">
                 <button
                   onClick={() => handleEdit(item)}
-                  className="flex-1 flex items-center justify-center px-3 py-1 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
+                  className="flex-1 flex items-center justify-center px-3 py-1 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer"
                 >
                   <Edit className="h-4 w-4 mr-1" />
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(item.id)}
-                  className="flex-1 flex items-center justify-center px-3 py-1 border border-red-300 rounded-md text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                  className="flex-1 flex items-center justify-center px-3 py-1 border border-orange-300 rounded-md text-orange-600 hover:bg-orange-50 transition-colors cursor-pointer"
                 >
                   <Trash2 className="h-4 w-4 mr-1" />
                   Delete

@@ -96,7 +96,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
           </h2>
           <button 
             onClick={onClose} 
-            className="text-gray-500 hover:text-red-500 transition-colors"
+            className="text-gray-500 hover:text-orange-500 transition-colors"
           >
             <FaTimes size={20} />
           </button>
@@ -112,7 +112,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
               id="name"
               value={formData.name}
               onChange={e => handleInputChange('name', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               required
             />
           </div>
@@ -127,7 +127,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
               rows={3}
               value={formData.description}
               onChange={e => handleInputChange('description', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
             />
           </div>
 
@@ -142,7 +142,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
                 min="0"
                 value={formData.price}
                 onChange={e => handleInputChange('price', Number(e.target.value))}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                 required
               />
             </div>
@@ -155,7 +155,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
                 min="1"
                 value={formData.preparationTime}
                 onChange={e => handleInputChange('preparationTime', Number(e.target.value))}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                 required
               />
             </div>
@@ -169,7 +169,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
             <select
               value={formData.category}
               onChange={e => handleInputChange('category', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               required
             >
               <option value="">Select category</option>
@@ -188,7 +188,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
               type="text"
               value={formData.image}
               onChange={e => handleInputChange('image', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               placeholder="/placeholder.svg"
             />
           </div>
@@ -210,7 +210,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
                   <button
                     type="button"
                     onClick={() => removeVariant(variant.id)}
-                    className="text-red-600 hover:text-red-800 transition-colors"
+                    className="text-orange-600 hover:text-orange-800 transition-colors"
                   >
                     <FaTrash size={14} />
                   </button>
@@ -222,7 +222,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
                   placeholder="Variant name"
                   value={newVariant.name}
                   onChange={(e) => setNewVariant({ ...newVariant, name: e.target.value })}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-sm"
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
                 />
                 <input
                   type="number"
@@ -233,12 +233,12 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
                     ...newVariant,
                     price: parseFloat(e.target.value) || 0,
                   })}
-                  className="w-24 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-sm"
+                  className="w-24 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
                 />
                 <button
                   type="button"
                   onClick={addVariant}
-                  className="px-3 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors flex items-center justify-center"
+                  className="px-3 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors flex items-center justify-center"
                 >
                   <FaPlus size={14} />
                 </button>
@@ -253,7 +253,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
                 type="checkbox"
                 checked={formData.isVeg}
                 onChange={(e) => handleInputChange('isVeg', e.target.checked)}
-                className="rounded border-gray-300 text-red-600 focus:ring-red-500"
+                className="rounded border-gray-300 text-orange-600 focus:ring-orange-500"
               />
               <span className="text-sm font-medium text-gray-700">Vegetarian</span>
             </label>
@@ -262,7 +262,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
                 type="checkbox"
                 checked={formData.isAvailable}
                 onChange={(e) => handleInputChange('isAvailable', e.target.checked)}
-                className="rounded border-gray-300 text-red-600 focus:ring-red-500"
+                className="rounded border-gray-300 text-orange-600 focus:ring-orange-500"
               />
               <span className="text-sm font-medium text-gray-700">Available</span>
             </label>
@@ -279,7 +279,7 @@ const MenuItemModal = ({ isOpen, onClose, editingItem }: MenuItemModalProps) => 
             </button>
             <button
               type="submit"
-              className="flex-1 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+              className="flex-1 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors"
             >
               {editingItem ? 'Update' : 'Add'} Item
             </button>
