@@ -1,8 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import AppLayout from "../layouts/AppLayout";
 import AuthLayout from "../layouts/AuthLayout";
@@ -30,7 +26,7 @@ import Menu from "../features/restaurants/pages/Menu";
 import Orders from "../features/restaurants/pages/Orders";
 import OrderHistory from "../features/restaurants/pages/OrderHistory";
 import RestaurantInfo from "../features/restaurants/pages/RestaurantInfo";
-import NotFound from "../features/restaurants/pages/NotFound";
+import Notifications from "../features/restaurants/pages/Notifications";
 
 const router = createBrowserRouter([
   {
@@ -81,7 +77,7 @@ const router = createBrowserRouter([
       { path: "orders", element: <Orders /> },
       { path: "order-history", element: <OrderHistory /> },
       { path: "restaurant-info", element: <RestaurantInfo /> },
-      { path: "*", element: <NotFound /> },
+      { path: "notifications", element: <Notifications /> },
     ],
   },
 ]);

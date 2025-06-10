@@ -137,10 +137,7 @@ const RestaurantRegistration: React.FC = () => {
         );
       case 4:
         return (
-          <Step4Payment
-            formData={formData}
-            onInputChange={handleInputChange}
-          />
+          <Step4Payment formData={formData} onInputChange={handleInputChange} />
         );
       default:
         return null;

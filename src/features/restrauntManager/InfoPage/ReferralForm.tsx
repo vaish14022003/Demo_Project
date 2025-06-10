@@ -114,7 +114,7 @@ export default function ReferralForm() {
         {/* Form */}
         <form
           onSubmit={() => {
-            alert("Referral accepted!")
+            alert("Referral accepted!");
             navigate("/restaurant-manager/info");
           }}
           className="p-8 space-y-6"

@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 
 interface AddressSectionProps {
   formData: FormData;
-  onInputChange: (field: keyof FormData, value: any) => void;
+  onInputChange: (field: keyof FormData, value: FormData[keyof FormData]) => void;
   getLocation: () => void;
   location: { lat: number; lon: number } | null;
   error: string | null;
@@ -61,28 +61,28 @@ const AddressSection: React.FC<AddressSectionProps> = ({
             type="text"
             placeholder="Shop no. / building no. (optional)"
             value={formData.shopNumber}
-            onChange={(e) => onInputChange("shopNumber", e.target.value)}
+            onChange={(e) => onInputChange("shopNumber", e.target.value as FormData[keyof FormData])}
             className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
           <input
             type="text"
             placeholder="Floor / tower (optional)"
             value={formData.floor}
-            onChange={(e) => onInputChange("floor", e.target.value)}
+            onChange={(e) => onInputChange("floor", e.target.value as FormData[keyof FormData])}
             className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
           <input
             type="text"
             placeholder="Area / Sector / Locality*"
             value={formData.area}
-            onChange={(e) => onInputChange("area", e.target.value)}
+            onChange={(e) => onInputChange("area", e.target.value as FormData[keyof FormData])}
             className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
           <input
             type="text"
             placeholder="City"
             value={formData.city}
-            onChange={(e) => onInputChange("city", e.target.value)}
+            onChange={(e) => onInputChange("city", e.target.value as FormData[keyof FormData])}
             className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50"
             readOnly
           />
@@ -91,7 +91,7 @@ const AddressSection: React.FC<AddressSectionProps> = ({
           type="text"
           placeholder="Add any nearby landmark (optional)"
           value={formData.landmark}
-          onChange={(e) => onInputChange("landmark", e.target.value)}
+          onChange={(e) => onInputChange("landmark", e.target.value as FormData[keyof FormData])}
           className="w-full mt-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
         />
         <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
