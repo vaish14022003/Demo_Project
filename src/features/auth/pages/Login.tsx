@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     console.log("Logging in with", { email, password });
     dispatch(login({ name: "John Doe", email: "john@example.com" }));
-    navigate("/home");
+    navigate("/restaurant");
   };
 
   return (

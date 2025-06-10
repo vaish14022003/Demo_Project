@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   FaHome,
   FaUtensils,
@@ -10,18 +10,19 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-const navigation = [
-  { name: "Home", href: "/", icon: FaHome },
-  { name: "Menu", href: "/menu", icon: FaUtensils },
-  { name: "Orders", href: "/orders", icon: FaListAlt },
-  { name: "Order History", href: "/order-history", icon: FaHistory },
-  { name: "Restaurant Info", href: "/restaurant-info", icon: FaInfoCircle },
-];
-
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+
+  const navigation = [
+    { name: "Home", href: "/restaurant", icon: FaHome },
+    { name: "Menu", href: "/restaurant/menu", icon: FaUtensils },
+    { name: "Orders", href: "/restaurant/orders", icon: FaListAlt },
+    { name: "Order History", href: "/restaurant/order-history", icon: FaHistory },
+    { name: "Restaurant Info", href: "/restaurant/restaurant-info", icon: FaInfoCircle },
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,6 +36,13 @@ const Sidebar = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Close mobile sidebar when route changes
+  useEffect(() => {
+    if (isMobile) {
+      setMobileOpen(false);
+    }
+  }, [location.pathname]);
 
   const toggleSidebar = () => {
     if (isMobile) {
@@ -50,6 +58,7 @@ const Sidebar = () => {
         <button
           onClick={toggleSidebar}
           className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-white shadow-md"
+          aria-label="Toggle sidebar"
         >
           {mobileOpen ? (
             <FaTimes className="h-5 w-5" />
@@ -61,16 +70,11 @@ const Sidebar = () => {
 
       <div
         className={`bg-white border-r border-gray-200 h-full fixed md:relative z-40
-          transition-all duration-300 ease-in-out transform-gpu
-          ${
-            isMobile
-              ? `${mobileOpen ? "translate-x-0" : "-translate-x-full"}`
-              : ""
-          }
-          ${!isMobile ? `${collapsed ? "w-18" : "w-64"}` : "w-64"}`}
+          transition-all duration-300 ease-in-out
+          ${isMobile ? (mobileOpen ? "translate-x-0" : "-translate-x-full") : ""}
+          ${!isMobile ? (collapsed ? "w-18" : "w-64") : "w-64"}`}
         style={{
           willChange: isMobile ? "transform" : "width",
-          backfaceVisibility: "hidden",
         }}
       >
         <div className="flex flex-col h-full overflow-hidden">
@@ -79,6 +83,7 @@ const Sidebar = () => {
               <button
                 onClick={toggleSidebar}
                 className="p-1 rounded-md hover:bg-gray-100"
+                aria-label="Toggle sidebar"
               >
                 <FaBars className="h-5 w-5 text-gray-700" />
               </button>
@@ -100,11 +105,11 @@ const Sidebar = () => {
               <NavLink
                 key={item.name}
                 to={item.href}
-                onClick={() => isMobile && setMobileOpen(false)}
+                end
                 className={({ isActive }) =>
                   `flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors min-w-[3rem] ${
                     isActive
-                      ? "bg-red-50 text-red-600 border-r-2 border-red-600"
+                      ? "bg-orange-50 text-orange-600 border-r-2 border-orange-600"
                       : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                   }`
                 }
@@ -123,9 +128,6 @@ const Sidebar = () => {
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden transition-opacity duration-300 ease-in-out"
           onClick={() => setMobileOpen(false)}
-          style={{
-            willChange: "opacity",
-          }}
         />
       )}
     </>

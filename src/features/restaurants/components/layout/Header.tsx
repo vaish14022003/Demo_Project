@@ -8,7 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    navigate("/restaurant-info");
+    navigate("/restaurant/restaurant-info");
   };
 
   return (

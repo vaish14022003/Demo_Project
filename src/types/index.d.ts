@@ -59,3 +59,11 @@ export interface Step {
   subtitle: string;
   icon: string;
 }
+
+export interface MenuItem {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+}
